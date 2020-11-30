@@ -1,15 +1,20 @@
-import 'package:flutter/material.dart';
+import "package:expensesmanager/screens/expenses/expenses.dart";
+import 'package:expensesmanager/tools/data.dart';
+import "package:flutter/material.dart";
 
 void main() {
   runApp(ExpensesManager());
 }
 
 class ExpensesManager extends StatelessWidget {
-  // This widget is the root of your application.
+  ExpensesManager() {
+    Data.prepareData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Expenses Manager',
+      title: "Expenses Manager",
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -22,11 +27,6 @@ class ExpensesManager extends StatelessWidget {
 class ScreenManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Container(child: Text("Hello World!!")),
-    );
+    return ExpensesScreen();
   }
 }
